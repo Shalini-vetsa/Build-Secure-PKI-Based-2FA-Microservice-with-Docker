@@ -1,0 +1,12 @@
+from crypto_utils import load_private_key, decrypt_seed
+
+private_key = load_private_key("student_private.pem")
+
+encrypted_seed = "G+JlBItvFPAT0OOX+eH61Z0T+JKleHLI/WDM9SdSWwwyP4hJduiY7rk6AsxCpnrS/dBBGv6pFYbnUOwRP4o36hYz4EUIpVR5MiHO1t1abZWTj5NFo4ZCD9qHEfUbqIWEmSqWyzMAOOf3g5YCUBiimVrtiSngLGhvLzDe7+wfCGIZ85JPYvK9d2KtOY+EhE3EoCD9YqUDCknso/AFd6cT5oFFdbJLf9tZifRNLCu0s6yxkSqJM4FEKFtOyvZ9dALtamvW/ejH0bc23WgSVu3rLAGLN44FeJp5f9sRs0xUWTm0FgwF0KRQPB9UDJNHl9/l7p8ZfLMcyDLTGoa51OBJ4r8y45wG6TGht/eswAnPJRWXVURtKbrLhSooCInPulcCM/2ePNekmunyrzAK7jwKI2TuzDNWi4giGVlZ3TEEiFRBeUwl9O468v1ETBgJnFRzH/26hTlPE6XCwMgf58y9rvXLASTqK+nhWk3D4IZV2Ehfa+mR3ejJEwbEh2x/ORQ19XXStq5XkmBWb9zXqBAQoMVEghbJixa27373NY0tPhysInUJv3hfYPb1eECcPAS0hGF0VDNge31FI8kCPlCK3cfoBiAtIGBz0JbFIP3jn8SjexJgGbSNdnGV59F0N6ZXiR7YsBQ0i2azweVL7NjkRyoliZvexTUKtrEVgICL5co="
+encrypted_seed = encrypted_seed.strip()
+
+try:
+    seed = decrypt_seed(encrypted_seed, private_key)
+    print("Decrypted seed:", seed)
+except Exception as e:
+    print("Error:", e)
